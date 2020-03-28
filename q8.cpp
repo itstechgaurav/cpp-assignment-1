@@ -8,22 +8,25 @@ class complex {
         complex() {
             r = i = 0;
         }
-        complex(int a, int b) {
-            r = a;
-            i = b;
+        void input() {
+            cout << "Enter real part: ", cin >> r;
+            cout << "Enter imag part: ", cin >> i;
         }
         complex operator+(complex ob) {
-            r += ob.r;
-            i += ob.i;
-            return *this;
+            complex nbb;
+            nbb.r = r + ob.r;
+            nbb.i = i + ob.i;
+            return nbb;
         }
         void print() {
-            cout << r << " + " << i << "i";
+            cout << r << (i < 0 ? " " : " + ") << i << "i";
         }
 };
 
 int main() {
-    complex a(4, 5), b(4, 3), c;
+    complex a, b, c;
+    a.input();
+    b.input();
     c = a+b;
     c.print();
 }
